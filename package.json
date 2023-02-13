@@ -1,21 +1,34 @@
 {
   "name": "notes-app",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "version": "1.0.0",
+  "description": "Notes application",
+  "main": "server.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dimterion/Notes-app.git"
+  },
+  "keywords": [
+    "notes",
+    "app"
+  ],
+  "author": "Dimterion",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Dimterion/Notes-app/issues"
+  },
+  "homepage": "https://github.com/Dimterion/Notes-app#readme",
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "bcryptjs": "^2.4.3",
+    "colors": "^1.4.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.9.1"
   },
   "devDependencies": {
-    "@types/react": "^18.0.27",
-    "@types/react-dom": "^18.0.10",
-    "@vitejs/plugin-react": "^3.1.0",
-    "vite": "^4.1.0"
+    "nodemon": "^2.0.20"
   }
 }
