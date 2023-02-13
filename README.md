@@ -1,5 +1,5 @@
 # Notes App
 
-MERN-stack project
+## MERN-stack project
 
-WORK IN PROGRESS
+### WORK IN PROGRESS
