@@ -9,6 +9,10 @@ const {
 } = require("../controllers/noteController");
 const { protect } = require("../middleware/authMiddleware");
 
+// Re-route into update router
+const updateRouter = require("./updateRoutes");
+router.use("/:noteId/updates", updateRouter);
+
 router.route("/").get(protect, getNotes).post(protect, createNote);
 
 router
