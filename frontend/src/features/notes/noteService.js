@@ -28,9 +28,23 @@ const getNotes = async (token) => {
   return response.data;
 };
 
+// Get user note
+const getNote = async (noteId, token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  const response = await axios.get(API_URL + noteId, config);
+
+  return response.data;
+};
+
 const noteService = {
   createNote,
   getNotes,
+  getNote,
 };
 
 export default noteService;
