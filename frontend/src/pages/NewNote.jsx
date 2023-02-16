@@ -1,18 +1,49 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { createNote, reset } from "../features/notes/noteSlice";
+import Spinner from "../components/Spinner";
+import BackButton from "../components/BackButton";
 
 function NewNote() {
   const { user } = useSelector((state) => state.auth);
+  const { isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.note
+  );
+
   const [name] = useState(user.name);
   const [type, setType] = useState("Task");
   const [description, setDescription] = useState("");
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(message);
+    }
+
+    if (isSuccess) {
+      dispatch(reset());
+      navigate("/notes");
+    }
+
+    dispatch(reset());
+  }, [dispatch, navigate, isError, isSuccess, message]);
+
   const onSubmit = (e) => {
     e.preventDefault();
+    dispatch(createNote({ type, description }));
   };
+
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   return (
     <>
+      <BackButton url="/" />
       <section className="heading">
         <h1>Create New Note</h1>
         <p>Fill out the form below</p>
