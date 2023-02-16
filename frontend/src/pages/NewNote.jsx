@@ -9,7 +9,7 @@ import BackButton from "../components/BackButton";
 function NewNote() {
   const { user } = useSelector((state) => state.auth);
   const { isLoading, isError, isSuccess, message } = useSelector(
-    (state) => state.note
+    (state) => state.notes
   );
 
   const [name] = useState(user.name);
