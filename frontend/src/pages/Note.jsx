@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { toast } from "react-toastify";
 import { useSelector, useDispatch } from "react-redux";
-import { getNote, reset } from "../features/notes/noteSlice";
-import { useParams } from "react-router-dom";
+import { getNote, completeNote, reset } from "../features/notes/noteSlice";
+import { useParams, useNavigate } from "react-router-dom";
 import BackButton from "../components/BackButton";
 import Spinner from "../components/Spinner";
 
@@ -12,6 +12,7 @@ function Note() {
   );
 
   const params = useParams();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { noteId } = useParams();
 
@@ -23,6 +24,13 @@ function Note() {
     dispatch(getNote(noteId));
     // eslint-disable-next-line
   }, [isError, message, noteId]);
+
+  // Complete note
+  const onNoteComplete = () => {
+    dispatch(completeNote(noteId));
+    toast.success("Note complete");
+    navigate("/notes");
+  };
 
   if (isLoading) {
     return <Spinner />;
@@ -43,12 +51,18 @@ function Note() {
         <h3>
           Date created: {new Date(note.createdAt).toLocaleString("en-US")}
         </h3>
+        <h3>Type: {note.type}</h3>
         <hr />
         <div className="ticket-desc">
           <h3>Description of the note</h3>
           <p>{note.description}</p>
         </div>
       </header>
+      {note.status !== "complete" && (
+        <button onClick={onNoteComplete} className="btn btn-block btn-danger">
+          Mark as Complete
+        </button>
+      )}
     </div>
   );
 }

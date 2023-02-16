@@ -230,7 +230,6 @@ h3 {
   background-color: #333;
   color: #fff;
   width: 100px;
-  padding: 0 20px;
   justify-self: center;
   border-radius: 10px;
   font-size: 16px;
@@ -249,7 +248,7 @@ h3 {
   border-radius: 10px;
 }
 
-.status-closed {
+.status-complete {
   background-color: darkred;
   color: #fff;
   border-radius: 10px;
@@ -317,7 +316,7 @@ h3 {
   right: 20px;
 }
 
-.btn-close {
+.btn-complete {
   background: none;
   border: none;
   color: #000;
@@ -328,7 +327,7 @@ h3 {
   cursor: pointer;
 }
 
-.btn-close:hover {
+.btn-complete:hover {
   color: red;
   transform: scale(0.98);
 }

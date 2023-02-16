@@ -41,10 +41,28 @@ const getNote = async (noteId, token) => {
   return response.data;
 };
 
+// Complete user note
+const completeNote = async (noteId, token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  const response = await axios.put(
+    API_URL + noteId,
+    { status: "complete" },
+    config
+  );
+
+  return response.data;
+};
+
 const noteService = {
   createNote,
   getNotes,
   getNote,
+  completeNote,
 };
 
 export default noteService;
