@@ -30,6 +30,26 @@ export const createNote = createAsyncThunk(
   }
 );
 
+// Get user notes
+export const getNotes = createAsyncThunk(
+  "notes/getAll",
+  async (_, thunkAPI) => {
+    try {
+      const token = thunkAPI.getState().auth.user.token;
+      return await noteService.getNotes(token);
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
+
 export const noteSlice = createSlice({
   name: "note",
   initialState,
@@ -46,6 +66,19 @@ export const noteSlice = createSlice({
         state.isSuccess = true;
       })
       .addCase(createNote.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload;
+      })
+      .addCase(getNotes.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getNotes.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.notes = action.payload;
+      })
+      .addCase(getNotes.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload;

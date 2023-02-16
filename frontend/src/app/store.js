@@ -5,6 +5,6 @@ import noteReducer from "../features/notes/noteSlice";
 export const store = configureStore({
   reducer: {
     auth: authReducer,
-    note: noteReducer,
+    notes: noteReducer,
   },
 });

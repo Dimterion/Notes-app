@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import NewNote from "./pages/NewNote";
+import Notes from "./pages/Notes";
 
 function App() {
   return (
@@ -23,6 +24,14 @@ function App() {
               element={
                 <PrivateRoute>
                   <NewNote />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/notes"
+              element={
+                <PrivateRoute>
+                  <Notes />
                 </PrivateRoute>
               }
             />
