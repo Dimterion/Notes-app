@@ -19,6 +19,33 @@ const getNotes = asyncHandler(async (req, res) => {
   res.status(200).json(notes);
 });
 
+// @desc    Get user note
+// @route   GET /api/notes/:id
+// @access  Private
+const getNote = asyncHandler(async (req, res) => {
+  // Get user with the id in the JWT
+  const user = await User.findById(req.user.id);
+
+  if (!user) {
+    res.status(401);
+    throw new Error("User not found");
+  }
+
+  const note = await Note.findById(req.params.id);
+
+  if (!note) {
+    res.status(404);
+    throw new Error("Note not found");
+  }
+
+  if (note.user.toString() !== req.user.id) {
+    res.status(401);
+    throw new Error("Not authorized");
+  }
+
+  res.status(200).json(note);
+});
+
 // @desc    Create new note
 // @route   POST /api/notes
 // @access  Private
@@ -48,7 +75,70 @@ const createNote = asyncHandler(async (req, res) => {
   res.status(201).json(note);
 });
 
+// @desc    Delete note
+// @route   DELETE /api/notes/:id
+// @access  Private
+const deleteNote = asyncHandler(async (req, res) => {
+  // Get user with the id in the JWT
+  const user = await User.findById(req.user.id);
+
+  if (!user) {
+    res.status(401);
+    throw new Error("User not found");
+  }
+
+  const note = await Note.findById(req.params.id);
+
+  if (!note) {
+    res.status(404);
+    throw new Error("Note not found");
+  }
+
+  if (note.user.toString() !== req.user.id) {
+    res.status(401);
+    throw new Error("Not authorized");
+  }
+
+  await note.remove();
+
+  res.status(200).json({ success: true });
+});
+
+// @desc    Update note
+// @route   PUT /api/notes/:id
+// @access  Private
+const updateNote = asyncHandler(async (req, res) => {
+  // Get user with the id in the JWT
+  const user = await User.findById(req.user.id);
+
+  if (!user) {
+    res.status(401);
+    throw new Error("User not found");
+  }
+
+  const note = await Note.findById(req.params.id);
+
+  if (!note) {
+    res.status(404);
+    throw new Error("Note not found");
+  }
+
+  if (note.user.toString() !== req.user.id) {
+    res.status(401);
+    throw new Error("Not authorized");
+  }
+
+  const updatedNote = await Note.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+  });
+
+  res.status(200).json(updatedNote);
+});
+
 module.exports = {
   getNotes,
+  getNote,
   createNote,
+  deleteNote,
+  updateNote,
 };
