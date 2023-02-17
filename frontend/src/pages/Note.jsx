@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getNote, completeNote } from "../features/notes/noteSlice";
 import {
   getUpdates,
+  createUpdate,
   reset as updatesReset,
 } from "../features/updates/updateSlice";
 import { useParams, useNavigate } from "react-router-dom";
@@ -65,7 +66,7 @@ function Note() {
   // Create update submit
   const onUpdateSubmit = (e) => {
     e.preventDefault();
-    console.log("Submit");
+    dispatch(createUpdate({ updateText, noteId }));
     closeModal();
   };
 
