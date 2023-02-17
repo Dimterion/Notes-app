@@ -1,5 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import Modal from "react-modal";
+import { FaPlus } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { getNote, completeNote } from "../features/notes/noteSlice";
 import {
@@ -11,7 +13,25 @@ import BackButton from "../components/BackButton";
 import Spinner from "../components/Spinner";
 import UpdateItem from "../components/UpdateItem";
 
+const customStyles = {
+  content: {
+    width: "600px",
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+    position: "relative",
+  },
+};
+
+Modal.setAppElement("#root");
+
 function Note() {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [updateText, setUpdateText] = useState("");
+
   const { note, isError, isLoading, isSuccess, message } = useSelector(
     (state) => state.notes
   );
@@ -42,6 +62,17 @@ function Note() {
     navigate("/notes");
   };
 
+  // Create update submit
+  const onUpdateSubmit = (e) => {
+    e.preventDefault();
+    console.log("Submit");
+    closeModal();
+  };
+
+  // Open/close modal
+  const openModal = () => setModalIsOpen(true);
+  const closeModal = () => setModalIsOpen(false);
+
   if (isLoading || updatesIsLoading) {
     return <Spinner />;
   }
@@ -69,6 +100,39 @@ function Note() {
         </div>
         <h2>Updates</h2>
       </header>
+      {note.status !== "closed" && (
+        <button onClick={openModal} className="btn">
+          <FaPlus /> Post an update
+        </button>
+      )}
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Post an update"
+      >
+        <h2>Post an update</h2>
+        <button className="btn-complete" onClick={closeModal}>
+          X
+        </button>
+        <form onSubmit={onUpdateSubmit}>
+          <div className="form-group">
+            <textarea
+              name="updateText"
+              id="updateText"
+              className="form-control"
+              placeholder="Update text"
+              value={updateText}
+              onChange={(e) => setUpdateText(e.target.value)}
+            ></textarea>
+          </div>
+          <div className="form-group">
+            <button className="btn" type="submit">
+              Submit
+            </button>
+          </div>
+        </form>
+      </Modal>
       {updates &&
         updates.map((update) => (
           <UpdateItem key={update._id} update={update} />
