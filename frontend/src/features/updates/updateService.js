@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "api/notes/";
+const API_URL = "/api/notes/";
 
 // Get note updates
 const getUpdates = async (noteId, token) => {

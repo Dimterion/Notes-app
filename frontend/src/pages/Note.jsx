@@ -1,14 +1,23 @@
 import { useEffect } from "react";
 import { toast } from "react-toastify";
 import { useSelector, useDispatch } from "react-redux";
-import { getNote, completeNote, reset } from "../features/notes/noteSlice";
+import { getNote, completeNote } from "../features/notes/noteSlice";
+import {
+  getUpdates,
+  reset as updatesReset,
+} from "../features/updates/updateSlice";
 import { useParams, useNavigate } from "react-router-dom";
 import BackButton from "../components/BackButton";
 import Spinner from "../components/Spinner";
+import UpdateItem from "../components/UpdateItem";
 
 function Note() {
   const { note, isError, isLoading, isSuccess, message } = useSelector(
     (state) => state.notes
+  );
+
+  const { updates, isLoading: updatesIsLoading } = useSelector(
+    (state) => state.updates
   );
 
   const params = useParams();
@@ -22,8 +31,9 @@ function Note() {
     }
 
     dispatch(getNote(noteId));
+    dispatch(getUpdates(noteId));
     // eslint-disable-next-line
-  }, [isError, message, noteId]);
+  }, [isError, message, noteId, dispatch]);
 
   // Complete note
   const onNoteComplete = () => {
@@ -32,7 +42,7 @@ function Note() {
     navigate("/notes");
   };
 
-  if (isLoading) {
+  if (isLoading || updatesIsLoading) {
     return <Spinner />;
   }
 
@@ -57,7 +67,12 @@ function Note() {
           <h3>Description of the note</h3>
           <p>{note.description}</p>
         </div>
+        <h2>Updates</h2>
       </header>
+      {updates &&
+        updates.map((update) => (
+          <UpdateItem key={update._id} update={update} />
+        ))}
       {note.status !== "complete" && (
         <button onClick={onNoteComplete} className="btn btn-block btn-danger">
           Mark as Complete
