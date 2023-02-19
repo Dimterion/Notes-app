@@ -1,19 +1,11 @@
 const asyncHandler = require("express-async-handler");
-const User = require("../models/userModel");
+
 const Note = require("../models/noteModel");
 
 // @desc    Get user notes
 // @route   GET /api/notes
 // @access  Private
 const getNotes = asyncHandler(async (req, res) => {
-  // Get user with the id in the JWT
-  const user = await User.findById(req.user.id);
-
-  if (!user) {
-    res.status(401);
-    throw new Error("User not found");
-  }
-
   const notes = await Note.find({ user: req.user.id });
 
   res.status(200).json(notes);
@@ -23,14 +15,6 @@ const getNotes = asyncHandler(async (req, res) => {
 // @route   GET /api/notes/:id
 // @access  Private
 const getNote = asyncHandler(async (req, res) => {
-  // Get user with the id in the JWT
-  const user = await User.findById(req.user.id);
-
-  if (!user) {
-    res.status(401);
-    throw new Error("User not found");
-  }
-
   const note = await Note.findById(req.params.id);
 
   if (!note) {
@@ -57,14 +41,6 @@ const createNote = asyncHandler(async (req, res) => {
     throw new Error("Please add a type and description");
   }
 
-  // Get user with the id in the JWT
-  const user = await User.findById(req.user.id);
-
-  if (!user) {
-    res.status(401);
-    throw new Error("User not found");
-  }
-
   const note = await Note.create({
     type,
     description,
@@ -79,14 +55,6 @@ const createNote = asyncHandler(async (req, res) => {
 // @route   DELETE /api/notes/:id
 // @access  Private
 const deleteNote = asyncHandler(async (req, res) => {
-  // Get user with the id in the JWT
-  const user = await User.findById(req.user.id);
-
-  if (!user) {
-    res.status(401);
-    throw new Error("User not found");
-  }
-
   const note = await Note.findById(req.params.id);
 
   if (!note) {
@@ -108,14 +76,6 @@ const deleteNote = asyncHandler(async (req, res) => {
 // @route   PUT /api/notes/:id
 // @access  Private
 const updateNote = asyncHandler(async (req, res) => {
-  // Get user with the id in the JWT
-  const user = await User.findById(req.user.id);
-
-  if (!user) {
-    res.status(401);
-    throw new Error("User not found");
-  }
-
   const note = await Note.findById(req.params.id);
 
   if (!note) {

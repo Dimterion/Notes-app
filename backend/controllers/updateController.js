@@ -1,5 +1,5 @@
 const asyncHandler = require("express-async-handler");
-const User = require("../models/userModel");
+
 const Update = require("../models/updateModel");
 const Note = require("../models/noteModel");
 
@@ -7,14 +7,6 @@ const Note = require("../models/noteModel");
 // @route   GET /api/notes/:noteId/updates
 // @access  Private
 const getUpdates = asyncHandler(async (req, res) => {
-  // Get user with the id in the JWT
-  const user = await User.findById(req.user.id);
-
-  if (!user) {
-    res.status(401);
-    throw new Error("User not found");
-  }
-
   const note = await Note.findById(req.params.noteId);
 
   if (note.user.toString() !== req.user.id) {
@@ -31,14 +23,6 @@ const getUpdates = asyncHandler(async (req, res) => {
 // @route   POST /api/notes/:noteId/updates
 // @access  Private
 const addUpdate = asyncHandler(async (req, res) => {
-  // Get user with the id in the JWT
-  const user = await User.findById(req.user.id);
-
-  if (!user) {
-    res.status(401);
-    throw new Error("User not found");
-  }
-
   const note = await Note.findById(req.params.noteId);
 
   if (note.user.toString() !== req.user.id) {
