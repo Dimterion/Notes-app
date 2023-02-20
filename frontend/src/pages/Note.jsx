@@ -4,11 +4,7 @@ import Modal from "react-modal";
 import { FaPlus } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { getNote, completeNote } from "../features/notes/noteSlice";
-import {
-  getUpdates,
-  createUpdate,
-  reset as updatesReset,
-} from "../features/updates/updateSlice";
+import { getUpdates, createUpdate } from "../features/updates/updateSlice";
 import { useParams, useNavigate } from "react-router-dom";
 import BackButton from "../components/BackButton";
 import Spinner from "../components/Spinner";
@@ -33,53 +29,48 @@ function Note() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [updateText, setUpdateText] = useState("");
 
-  const { note, isError, isLoading, isSuccess, message } = useSelector(
-    (state) => state.notes
-  );
+  const { note } = useSelector((state) => state.notes);
 
-  const { updates, isLoading: updatesIsLoading } = useSelector(
-    (state) => state.updates
-  );
+  const { updates } = useSelector((state) => state.updates);
 
-  const params = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { noteId } = useParams();
 
   useEffect(() => {
-    if (isError) {
-      toast.error(message);
-    }
-
-    dispatch(getNote(noteId));
-    dispatch(getUpdates(noteId));
-    // eslint-disable-next-line
-  }, [isError, message, noteId, dispatch]);
+    dispatch(getNote(noteId)).unwrap().catch(toast.error);
+    dispatch(getUpdates(noteId)).unwrap().catch(toast.error);
+  }, [noteId, dispatch]);
 
   // Complete note
   const onNoteComplete = () => {
-    dispatch(completeNote(noteId));
-    toast.success("Note complete");
-    navigate("/notes");
+    dispatch(completeNote(noteId))
+      .unwrap()
+      .then(() => {
+        toast.success("Note complete");
+        navigate("/notes");
+      })
+      .catch(toast.error);
   };
 
   // Create update submit
   const onUpdateSubmit = (e) => {
     e.preventDefault();
-    dispatch(createUpdate({ updateText, noteId }));
-    closeModal();
+    dispatch(createUpdate({ updateText, noteId }))
+      .unwrap()
+      .then(() => {
+        setUpdateText("");
+        closeModal();
+      })
+      .catch(toast.error);
   };
 
   // Open/close modal
   const openModal = () => setModalIsOpen(true);
   const closeModal = () => setModalIsOpen(false);
 
-  if (isLoading || updatesIsLoading) {
+  if (!note) {
     return <Spinner />;
-  }
-
-  if (isError) {
-    return <h3>Something went wrong.</h3>;
   }
 
   return (
@@ -134,10 +125,11 @@ function Note() {
           </div>
         </form>
       </Modal>
-      {updates &&
-        updates.map((update) => (
-          <UpdateItem key={update._id} update={update} />
-        ))}
+      {updates ? (
+        updates.map((update) => <UpdateItem key={update._id} update={update} />)
+      ) : (
+        <Spinner />
+      )}
       {note.status !== "complete" && (
         <button onClick={onNoteComplete} className="btn btn-block btn-danger">
           Mark as Complete
