@@ -1,16 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { createNote, reset } from "../features/notes/noteSlice";
-import Spinner from "../components/Spinner";
+import { createNote } from "../features/notes/noteSlice";
 import BackButton from "../components/BackButton";
 
 function NewNote() {
   const { user } = useSelector((state) => state.auth);
-  const { isLoading, isError, isSuccess, message } = useSelector(
-    (state) => state.notes
-  );
 
   const [name] = useState(user.name);
   const [type, setType] = useState("Task");
@@ -19,27 +15,16 @@ function NewNote() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (isError) {
-      toast.error(message);
-    }
-
-    if (isSuccess) {
-      dispatch(reset());
-      navigate("/notes");
-    }
-
-    dispatch(reset());
-  }, [dispatch, navigate, isError, isSuccess, message]);
-
   const onSubmit = (e) => {
     e.preventDefault();
-    dispatch(createNote({ type, description }));
+    dispatch(createNote({ type, description }))
+      .unwrap()
+      .then(() => {
+        navigate("/notes");
+        toast.success("New note is created!");
+      })
+      .catch(toast.error);
   };
-
-  if (isLoading) {
-    return <Spinner />;
-  }
 
   return (
     <>
