@@ -41,7 +41,7 @@ const getNote = async (noteId, token) => {
   return response.data;
 };
 
-// Complete user note
+// Mark note as complete
 const completeNote = async (noteId, token) => {
   const config = {
     headers: {
