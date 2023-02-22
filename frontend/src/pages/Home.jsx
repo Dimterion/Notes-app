@@ -5,15 +5,17 @@ function Home() {
   return (
     <>
       <section className="heading">
-        <h1>Create Your Notes</h1>
-        <p>Please choose</p>
+        <h1>Notes</h1>
+        <p>Write a note or view your current ones</p>
       </section>
-      <Link to="/new-note" className="btn btn-reverse btn-block">
-        <MdNoteAdd /> Create New Note
-      </Link>
-      <Link to="/notes" className="btn btn-block">
-        <MdNotes /> View My Notes
-      </Link>
+      <div className="btn-block">
+        <Link to="/new-note" className="btn btn-reverse btn-block">
+          <MdNoteAdd /> New Note
+        </Link>
+        <Link to="/notes" className="btn btn-block">
+          <MdNotes /> My Notes
+        </Link>
+      </div>
     </>
   );
 }

@@ -9,6 +9,7 @@
 body {
   font-family: "Poppins", sans-serif;
   height: 100vh;
+  background-color: #8a817c;
 }
 
 a {
@@ -76,14 +77,26 @@ h3 {
 }
 
 .heading {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 50px;
   padding: 0 20px;
+  background: center / cover no-repeat url(../src/assets/home_page_img.jpg);
+  height: 30vh;
+  border-radius: 5px;
+}
+
+.heading h1 {
+  color: #f4f3ee;
+  text-shadow: 1px 1px 1px #000;
 }
 
 .heading p {
-  color: #828282;
+  color: #e0afa0;
+  text-shadow: 1px 1px 1px #000;
 }
 
 .boxes {
@@ -136,13 +149,19 @@ h3 {
   margin: 0 0 5px 3px;
 }
 
+.btn-block {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
 .btn {
   padding: 10px 20px;
   border: 1px solid #000;
   border-radius: 5px;
-  background: #000;
-  color: #fff;
-  font-size: 16px;
+  background: #e0afa0;
+  color: #463f3a;
+  font-size: 18px;
   font-weight: 700;
   cursor: pointer;
   text-align: center;
@@ -150,6 +169,8 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
+  max-width: 400px;
+  margin: 5px;
 }
 
 .btn svg {
@@ -157,8 +178,8 @@ h3 {
 }
 
 .btn-reverse {
-  background: #fff;
-  color: #000;
+  background: #bcb8b1;
+  color: #463f3a;
 }
 
 .btn-block {
