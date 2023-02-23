@@ -13,6 +13,8 @@ import UpdateItem from "../components/UpdateItem";
 const customStyles = {
   content: {
     width: "600px",
+    maxWidth: "95vw",
+    background: "#bcb8b1",
     top: "50%",
     left: "50%",
     right: "auto",
@@ -20,6 +22,10 @@ const customStyles = {
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
     position: "relative",
+    border: "1px solid #252323",
+  },
+  overlay: {
+    backgroundColor: "rgb(189 189 189 / 75%)",
   },
 };
 

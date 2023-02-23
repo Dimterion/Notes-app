@@ -204,8 +204,7 @@ h3 {
 }
 
 .btn-danger {
-  background: darkred;
-  border: none;
+  background: #bc4749;
 }
 
 .btn-back {
@@ -261,10 +260,10 @@ h3 {
 .status {
   background-color: #333;
   color: #fff;
-  width: 90px;
+  width: 80px;
   justify-self: center;
   border-radius: 10px;
-  font-size: 16px;
+  font-size: 12px;
   text-align: center;
 }
 
@@ -334,10 +333,11 @@ h3 {
 }
 
 .note-date {
-  position: absolute;
+  position: relative;
   top: 15px;
   right: 10px;
   font-size: 14px;
+  border-top: 1px solid #252323;
 }
 
 .delete-note {
@@ -360,7 +360,7 @@ h3 {
 }
 
 .btn-complete:hover {
-  color: red;
+  color: #bc4749;
   transform: scale(0.98);
 }
 
@@ -448,5 +448,9 @@ footer {
   .ticket-headings {
     padding: 10px 0;
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .ticket-header h2 {
+    font-size: 1rem;
   }
 }
