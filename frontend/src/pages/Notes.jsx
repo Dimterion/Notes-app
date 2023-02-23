@@ -27,7 +27,6 @@ function Notes() {
           <div>Date</div>
           <div>Type</div>
           <div>Status</div>
-          <div></div>
         </div>
         {notes.map((note) => (
           <NoteItem key={note._id} note={note} />

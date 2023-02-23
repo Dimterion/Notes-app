@@ -49,8 +49,14 @@ h3 {
   justify-content: space-between;
   align-items: center;
   padding: 20px 0;
-  border-bottom: 1px solid #e6e6e6;
+  border-bottom: 1px solid #252323;
   margin-bottom: 60px;
+}
+
+.logo a {
+  color: #252323;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .header ul {
@@ -64,12 +70,15 @@ h3 {
 }
 
 .header ul li a {
+  color: #252323;
   display: flex;
   align-items: center;
+  transition: 0.5s;
 }
 
 .header ul li a:hover {
-  color: #777;
+  color: #f4f3ee;
+  transition: 0.5s;
 }
 
 .header ul li a svg {
@@ -137,7 +146,8 @@ h3 {
 .form-group select {
   width: 100%;
   padding: 10px;
-  border: 1px solid #e6e6e6;
+  border: 1px solid #f4f3ee;
+  color: #252323;
   border-radius: 5px;
   margin-bottom: 10px;
   font-family: inherit;
@@ -157,10 +167,10 @@ h3 {
 
 .btn {
   padding: 10px 20px;
-  border: 1px solid #000;
+  border: 1px solid #252323;
   border-radius: 5px;
   background: #e0afa0;
-  color: #463f3a;
+  color: #252323;
   font-size: 18px;
   font-weight: 700;
   cursor: pointer;
@@ -170,7 +180,7 @@ h3 {
   align-items: center;
   justify-content: center;
   max-width: 400px;
-  margin: 5px;
+  margin: auto;
 }
 
 .btn svg {
@@ -179,7 +189,7 @@ h3 {
 
 .btn-reverse {
   background: #bcb8b1;
-  color: #463f3a;
+  color: #252323;
 }
 
 .btn-block {
@@ -199,7 +209,7 @@ h3 {
 
 .btn-back {
   width: 150px;
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 
 .btn:hover {
@@ -250,7 +260,7 @@ h3 {
 .status {
   background-color: #333;
   color: #fff;
-  width: 100px;
+  width: 90px;
   justify-self: center;
   border-radius: 10px;
   font-size: 16px;
@@ -422,5 +432,20 @@ footer {
 
   .heading p {
     font-size: 1.5rem;
+  }
+
+  .container {
+    padding: 5px;
+  }
+
+  .ticket {
+    padding: 5px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .ticket-headings {
+    padding: 10px 0;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
