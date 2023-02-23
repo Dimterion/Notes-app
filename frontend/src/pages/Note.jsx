@@ -82,7 +82,7 @@ function Note() {
           <span className={`status status-${note.status}`}>{note.status}</span>
         </h2>
         <h3>
-          Date created: {new Date(note.createdAt).toLocaleString("en-US")}
+          Date created: {new Date(note.createdAt).toLocaleString("en-GB")}
         </h3>
         <h3>Type: {note.type}</h3>
         <hr />

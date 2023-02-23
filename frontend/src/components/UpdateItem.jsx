@@ -17,7 +17,7 @@ function UpdateItem({ update }) {
       </h4>
       <p>{update.text}</p>
       <div className="note-date">
-        {new Date(update.createdAt).toLocaleString("en-US")}
+        {new Date(update.createdAt).toLocaleString("en-GB")}
       </div>
     </div>
   );

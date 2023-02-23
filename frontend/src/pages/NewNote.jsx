@@ -33,11 +33,8 @@ function NewNote() {
         <h1>Create New Note</h1>
         <p>Fill out the form below</p>
       </section>
+      <h2>{name}'s new note</h2>
       <section className="form">
-        <div className="form-group">
-          <label htmlFor="name">Name</label>
-          <input type="text" className="form-control" value={name} disabled />
-        </div>
         <form onSubmit={onSubmit}>
           <div className="form-group">
             <label htmlFor="type">Type</label>
