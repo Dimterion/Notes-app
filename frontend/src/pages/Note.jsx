@@ -80,8 +80,8 @@ function Note() {
   }
 
   return (
-    <div className="ticket-page">
-      <header className="ticket-header">
+    <div className="note-page">
+      <header className="note-header">
         <BackButton url="/notes" />
         <h2>
           Note ID: {note._id}
@@ -92,13 +92,13 @@ function Note() {
         </h3>
         <h3>Type: {note.type}</h3>
         <hr />
-        <div className="ticket-desc">
+        <div className="note-desc">
           <h3>Description of the note</h3>
           <p>{note.description}</p>
         </div>
         <h2>Updates</h2>
       </header>
-      {note.status !== "closed" && (
+      {note.status !== "complete" && (
         <button onClick={openModal} className="btn">
           <FaPlus /> Post an update
         </button>

@@ -22,8 +22,8 @@ function Notes() {
     <>
       <BackButton url="/" />
       <h1>Notes</h1>
-      <div className="tickets">
-        <div className="ticket-headings">
+      <div className="notes">
+        <div className="note-headings">
           <div>Date</div>
           <div>Type</div>
           <div>Status</div>

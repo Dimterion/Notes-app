@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function NoteItem({ note }) {
   return (
-    <div className="ticket">
+    <div className="note">
       <div>{new Date(note.createdAt).toLocaleString("en-GB")}</div>
       <div>{note.type}</div>
       <div className={`status status-${note.status}`}>{note.status}</div>

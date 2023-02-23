@@ -5,7 +5,7 @@ function UpdateItem({ update }) {
 
   return (
     <div
-      className="note"
+      className="update"
       style={{
         backgroundColor: update.isStaff ? "rgba(0,0,0,0.7)" : "#fff",
         color: update.isStaff ? "#fff" : "#000",
@@ -16,7 +16,7 @@ function UpdateItem({ update }) {
         {update.isStaff ? <span>Staff</span> : <span>{user.name}</span>}
       </h4>
       <p>{update.text}</p>
-      <div className="note-date">
+      <div className="update-date">
         {new Date(update.createdAt).toLocaleString("en-GB")}
       </div>
     </div>

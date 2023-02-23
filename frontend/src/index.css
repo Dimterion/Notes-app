@@ -216,31 +216,31 @@ h3 {
   transform: scale(0.98);
 }
 
-.ticket-created {
+.note-created {
   border: 1px solid #e6e6e6;
   border-radius: 5px;
   padding: 50px;
 }
 
-.ticket-number {
+.note-number {
   margin-bottom: 30px;
 }
 
-.ticket-number h2 {
+.note-number h2 {
   font-size: 2.3rem;
   margin-bottom: 10px;
 }
 
-.ticket-number p {
+.note-number p {
   font-size: 1.3rem;
 }
 
-.ticket-info {
+.note-info {
   font-size: 1.3rem;
 }
 
-.ticket,
-.ticket-headings {
+.note,
+.note-headings {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
@@ -253,7 +253,7 @@ h3 {
   text-align: center;
 }
 
-.ticket-headings {
+.note-headings {
   font-weight: 700;
 }
 
@@ -285,27 +285,27 @@ h3 {
   border-radius: 10px;
 }
 
-.ticket-page {
+.note-page {
   position: relative;
   text-align: left;
 }
 
-.ticket-page h2 {
+.note-page h2 {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.ticket-page .btn {
+.note-page .btn {
   margin-bottom: 30px;
 }
 
-.ticket-page .btn-block {
+.note-page .btn-block {
   width: 100%;
   margin-top: 30px;
 }
 
-.ticket-desc {
+.note-desc {
   margin: 20px 0;
   font-size: 17px;
   background-color: #f4f4f4;
@@ -314,7 +314,7 @@ h3 {
   border-radius: 5px;
 }
 
-.note {
+.update {
   border: 1px solid #e6e6e6;
   border-radius: 5px;
   text-align: left;
@@ -323,7 +323,7 @@ h3 {
   position: relative;
 }
 
-.note-head {
+.update-head {
   background: #f4f4f4;
   padding: 5px 20px;
   display: flex;
@@ -332,7 +332,7 @@ h3 {
   margin-bottom: 20px;
 }
 
-.note-date {
+.update-date {
   position: relative;
   top: 15px;
   right: 10px;
@@ -426,7 +426,7 @@ footer {
     width: 90%;
   }
 
-  .ticket-created h2,
+  .note-created h2,
   .heading h1 {
     font-size: 2rem;
   }
@@ -439,18 +439,18 @@ footer {
     padding: 5px;
   }
 
-  .ticket {
+  .note {
     padding: 5px;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
   }
 
-  .ticket-headings {
+  .note-headings {
     padding: 10px 0;
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .ticket-header h2 {
+  .note-header h2 {
     font-size: 1rem;
   }
 }
