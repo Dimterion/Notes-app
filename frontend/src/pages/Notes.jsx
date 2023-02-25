@@ -6,6 +6,7 @@ import BackButton from "../components/BackButton";
 import NoteItem from "../components/NoteItem";
 
 function Notes() {
+  const { user } = useSelector((state) => state.auth);
   const { notes } = useSelector((state) => state.notes);
 
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ function Notes() {
   return (
     <>
       <BackButton url="/" />
-      <h1>Notes</h1>
+      <h1>{user.name}'s Notes</h1>
       <div className="notes">
         <div className="note-headings">
           <div>Date</div>

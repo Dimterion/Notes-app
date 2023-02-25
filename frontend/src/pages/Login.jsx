@@ -65,7 +65,7 @@ function Login() {
               name="email"
               value={email}
               onChange={onChange}
-              placeholder="Enter your email"
+              placeholder="Your email"
               required
             />
           </div>
@@ -77,7 +77,7 @@ function Login() {
               name="password"
               value={password}
               onChange={onChange}
-              placeholder="Enter your password"
+              placeholder="Your password"
               required
             />
           </div>

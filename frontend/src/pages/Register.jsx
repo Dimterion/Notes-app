@@ -60,7 +60,7 @@ function Register() {
         <h1>
           <FaUser /> Register
         </h1>
-        <p>Please create an account</p>
+        <p>Create an account</p>
       </section>
       <section className="form">
         <form onSubmit={onSubmit}>
@@ -72,7 +72,7 @@ function Register() {
               name="name"
               value={name}
               onChange={onChange}
-              placeholder="Enter your name"
+              placeholder="Your name"
               required
             />
           </div>
@@ -84,7 +84,7 @@ function Register() {
               name="email"
               value={email}
               onChange={onChange}
-              placeholder="Enter your email"
+              placeholder="Your email"
               required
             />
           </div>
@@ -96,7 +96,7 @@ function Register() {
               name="password"
               value={password}
               onChange={onChange}
-              placeholder="Enter your password"
+              placeholder="Your password"
               required
             />
           </div>
@@ -108,7 +108,7 @@ function Register() {
               name="passwordConfirm"
               value={passwordConfirm}
               onChange={onChange}
-              placeholder="Confirm your password"
+              placeholder="Password confirmation"
               required
             />
           </div>
