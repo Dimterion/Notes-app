@@ -14,7 +14,7 @@ const customStyles = {
   content: {
     width: "600px",
     maxWidth: "95vw",
-    background: "#bcb8b1",
+    background: "#d6ccc2",
     top: "50%",
     left: "50%",
     right: "auto",
@@ -91,7 +91,6 @@ function Note() {
           Date created: {new Date(note.createdAt).toLocaleString("en-GB")}
         </h3>
         <h3>Type: {note.type}</h3>
-        <hr />
         <div className="note-desc">
           <h3>Description of the note</h3>
           <p>{note.description}</p>

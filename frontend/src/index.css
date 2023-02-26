@@ -78,7 +78,7 @@ h3 {
 }
 
 .header ul li a:hover {
-  color: #f4f3ee;
+  color: #f5ebe0;
   transition: 0.5s;
 }
 
@@ -100,7 +100,7 @@ h3 {
 }
 
 .heading h1 {
-  color: #f4f3ee;
+  color: #f5ebe0;
   text-shadow: 1px 1px 1px #000;
 }
 
@@ -147,6 +147,7 @@ h3 {
 .form-group select {
   width: 100%;
   padding: 10px;
+  background: #f5ebe0;
   border: 1px solid #f4f3ee;
   color: #252323;
   border-radius: 5px;
@@ -248,7 +249,7 @@ h3 {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
-  background: #f4f4f4;
+  background: #f5ebe0;
   padding: 10px 15px;
   border-radius: 5px;
   text-align: center;
@@ -309,7 +310,7 @@ h3 {
 .note-desc {
   margin: 20px 0;
   font-size: 17px;
-  background-color: #f4f4f4;
+  background-color: #f5ebe0;
   border: 1px #ccc solid;
   padding: 10px 15px;
   border-radius: 5px;

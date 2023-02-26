@@ -7,7 +7,7 @@ function UpdateItem({ update }) {
     <div
       className="update"
       style={{
-        backgroundColor: update.isStaff ? "rgba(0,0,0,0.7)" : "#fff",
+        backgroundColor: update.isStaff ? "rgba(0,0,0,0.7)" : "#f5ebe0",
         color: update.isStaff ? "#fff" : "#000",
       }}
     >
