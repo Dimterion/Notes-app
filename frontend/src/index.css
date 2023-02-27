@@ -1,5 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
 
+:root {
+  --primaryBackground: #8a817c;
+  --secondaryBackground: #bcb8b1;
+  --tertiaryBackground: #bc4749;
+  --primaryColor: #252323;
+  --secondaryColor: #f5ebe0;
+  --tertiaryColor: #e0afa0;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -9,16 +18,16 @@
 body {
   font-family: "Poppins", sans-serif;
   height: 100vh;
-  background-color: #8a817c;
+  background-color: var(--primaryBackground);
 }
 
 a {
   text-decoration: none;
-  color: #252323;
+  color: var(--primaryColor);
 }
 
 p {
-  line-height: 1.7;
+  line-height: 1.5;
 }
 
 ul {
@@ -26,7 +35,7 @@ ul {
 }
 
 li {
-  line-height: 2.2;
+  line-height: 2;
 }
 
 h1,
@@ -34,12 +43,12 @@ h2,
 h3 {
   font-weight: 600;
   margin-bottom: 10px;
-  color: #252323;
+  color: var(--primaryColor);
 }
 
 .container {
   width: 100%;
-  max-width: 960px;
+  max-width: 950px;
   margin: 0 auto;
   padding: 5px 20px;
   text-align: center;
@@ -50,12 +59,12 @@ h3 {
   justify-content: space-between;
   align-items: center;
   padding: 20px 0;
-  border-bottom: 1px solid #252323;
-  margin-bottom: 60px;
+  border-bottom: 1px solid var(--primaryColor);
+  margin-bottom: 50px;
 }
 
 .logo a {
-  color: #252323;
+  color: var(--primaryColor);
   font-size: 1.5rem;
   font-weight: bold;
 }
@@ -71,14 +80,14 @@ h3 {
 }
 
 .header ul li a {
-  color: #252323;
+  color: var(--primaryColor);
   display: flex;
   align-items: center;
   transition: 0.5s;
 }
 
 .header ul li a:hover {
-  color: #f5ebe0;
+  color: var(--secondaryColor);
   transition: 0.5s;
 }
 
@@ -100,13 +109,13 @@ h3 {
 }
 
 .heading h1 {
-  color: #f5ebe0;
-  text-shadow: 1px 1px 1px #000;
+  color: var(--secondaryColor);
+  text-shadow: 1px 1px 1px var(--primaryColor);
 }
 
 .heading p {
-  color: #e0afa0;
-  text-shadow: 1px 1px 1px #000;
+  color: var(--tertiaryColor);
+  text-shadow: 1px 1px 1px var(--primaryColor);
 }
 
 .boxes {
@@ -134,7 +143,7 @@ h3 {
 }
 
 .form {
-  width: 70%;
+  width: 50%;
   margin: 0 auto;
 }
 
@@ -147,9 +156,9 @@ h3 {
 .form-group select {
   width: 100%;
   padding: 10px;
-  background: #f5ebe0;
-  border: 1px solid #f4f3ee;
-  color: #252323;
+  background: var(--secondaryColor);
+  border: 1px solid var(--primaryColor);
+  color: var(--primaryColor);
   border-radius: 5px;
   margin-bottom: 10px;
   font-family: inherit;
@@ -158,7 +167,7 @@ h3 {
 .form-group label {
   text-align: left;
   display: block;
-  margin: 0 0 5px 3px;
+  margin: 5px;
 }
 
 .btn-block {
@@ -169,11 +178,11 @@ h3 {
 
 .btn {
   padding: 10px 20px;
-  border: 1px solid #252323;
+  border: 1px solid var(--primaryColor);
   border-radius: 5px;
-  background: #e0afa0;
-  color: #252323;
-  font-size: 18px;
+  background: var(--tertiaryColor);
+  color: var(--primaryColor);
+  font-size: 15px;
   font-weight: 700;
   cursor: pointer;
   text-align: center;
@@ -186,12 +195,12 @@ h3 {
 }
 
 .btn svg {
-  margin-right: 8px;
+  margin-right: 5px;
 }
 
 .btn-reverse {
-  background: #bcb8b1;
-  color: #252323;
+  background: var(--secondaryBackground);
+  color: var(--primaryColor);
 }
 
 .btn-block {
@@ -205,7 +214,7 @@ h3 {
 }
 
 .btn-danger {
-  background: #bc4749;
+  background: var(--tertiaryBackground);
   max-width: 200px;
 }
 
@@ -215,7 +224,7 @@ h3 {
 }
 
 .btn:hover {
-  transform: scale(0.98);
+  transform: scale(0.95);
 }
 
 .note-created {
@@ -249,7 +258,7 @@ h3 {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
-  background: #f5ebe0;
+  background: var(--secondaryColor);
   padding: 10px 15px;
   border-radius: 5px;
   text-align: center;
@@ -309,15 +318,15 @@ h3 {
 
 .note-desc {
   margin: 20px 0;
-  font-size: 17px;
-  background-color: #f5ebe0;
-  border: 1px #ccc solid;
+  font-size: 15px;
+  background-color: var(--secondaryColor);
+  border: 1px solid var(--primaryColor);
   padding: 10px 15px;
   border-radius: 5px;
 }
 
 .update {
-  border: 1px solid #e6e6e6;
+  border: 1px solid var(--primaryColor);
   border-radius: 5px;
   text-align: left;
   padding: 20px;
@@ -338,8 +347,9 @@ h3 {
   position: relative;
   top: 15px;
   right: 10px;
-  font-size: 14px;
-  border-top: 1px solid #252323;
+  font-size: 12px;
+  padding-top: 5px;
+  border-top: 1px solid var(--primaryColor);
 }
 
 .delete-note {
@@ -353,17 +363,17 @@ h3 {
 .btn-complete {
   background: none;
   border: none;
-  color: #000;
+  color: var(--primaryColor);
   position: absolute;
   top: 5px;
   right: 5px;
-  font-size: 16px;
+  font-size: 15px;
   cursor: pointer;
 }
 
 .btn-complete:hover {
-  color: #bc4749;
-  transform: scale(0.98);
+  color: var(--tertiaryBackground);
+  transform: scale(0.95);
 }
 
 p.status-in-progress {
@@ -402,12 +412,13 @@ footer {
 }
 
 .loadingSpinner {
-  width: 64px;
-  height: 64px;
-  border: 8px solid;
-  border-color: #000 transparent #555 transparent;
+  width: 65px;
+  height: 65px;
+  border: 10px solid;
+  border-color: var(--secondaryColor) transparent var(--tertiaryColor)
+    transparent;
   border-radius: 50%;
-  animation: spin 1.2s linear infinite;
+  animation: spin 1.5s linear infinite;
 }
 
 @keyframes spin {
