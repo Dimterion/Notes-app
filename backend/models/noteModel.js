@@ -19,7 +19,7 @@ const noteSchema = mongoose.Schema(
     status: {
       type: String,
       required: true,
-      enum: ["new", "in-progress", "done"],
+      enum: ["new", "in-progress", "complete"],
       default: "new",
     },
   },

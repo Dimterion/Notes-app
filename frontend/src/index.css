@@ -118,30 +118,6 @@ h3 {
   text-shadow: 1px 1px 1px var(--primaryColor);
 }
 
-.boxes {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.boxes div {
-  padding: 30px;
-  border: 1px solid #e6e6e6;
-  border-radius: 10px;
-}
-
-.boxes h2 {
-  margin-top: 20px;
-}
-
-.boxes a:hover {
-  color: #777;
-}
-
 .form {
   width: 50%;
   margin: 0 auto;
@@ -227,29 +203,6 @@ h3 {
   transform: scale(0.95);
 }
 
-.note-created {
-  border: 1px solid #e6e6e6;
-  border-radius: 5px;
-  padding: 50px;
-}
-
-.note-number {
-  margin-bottom: 30px;
-}
-
-.note-number h2 {
-  font-size: 2.3rem;
-  margin-bottom: 10px;
-}
-
-.note-number p {
-  font-size: 1.3rem;
-}
-
-.note-info {
-  font-size: 1.3rem;
-}
-
 .note,
 .note-headings {
   display: grid;
@@ -269,8 +222,8 @@ h3 {
 }
 
 .status {
-  background-color: #333;
-  color: #fff;
+  background-color: var(--secondaryBackground);
+  color: var(--primaryColor);
   width: 80px;
   justify-self: center;
   border-radius: 10px;
@@ -279,20 +232,14 @@ h3 {
 }
 
 .status-new {
-  background-color: green;
-  color: #fff;
-  border-radius: 10px;
-}
-
-.status-open {
-  background-color: steelblue;
-  color: #fff;
+  background-color: var(--secondaryBackground);
+  color: var(--primaryColor);
   border-radius: 10px;
 }
 
 .status-complete {
-  background-color: darkred;
-  color: #fff;
+  background-color: var(--tertiaryBackground);
+  color: var(--secondaryColor);
   border-radius: 10px;
 }
 
@@ -334,15 +281,6 @@ h3 {
   position: relative;
 }
 
-.update-head {
-  background: #f4f4f4;
-  padding: 5px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
 .update-date {
   position: relative;
   top: 15px;
@@ -350,14 +288,6 @@ h3 {
   font-size: 12px;
   padding-top: 5px;
   border-top: 1px solid var(--primaryColor);
-}
-
-.delete-note {
-  color: red;
-  cursor: pointer;
-  position: absolute;
-  bottom: 10px;
-  right: 20px;
 }
 
 .btn-complete {
@@ -374,22 +304,6 @@ h3 {
 .btn-complete:hover {
   color: var(--tertiaryBackground);
   transform: scale(0.95);
-}
-
-p.status-in-progress {
-  color: orangered;
-}
-
-p.status-waiting {
-  color: red;
-}
-
-p.status-ready {
-  color: steelblue;
-}
-
-p.status-complete {
-  color: green;
 }
 
 footer {
@@ -431,15 +345,10 @@ footer {
 }
 
 @media (max-width: 600px) {
-  .boxes {
-    grid-template-columns: 1fr;
-  }
-
   .form {
     width: 90%;
   }
 
-  .note-created h2,
   .heading h1 {
     font-size: 2rem;
   }
@@ -464,6 +373,10 @@ footer {
   }
 
   .note-header h2 {
-    font-size: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .status {
+    font-size: 10px;
   }
 }
