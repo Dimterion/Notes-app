@@ -105,6 +105,7 @@ h3 {
   padding: 0 20px;
   background: center / cover no-repeat url(../src/assets/home_page_img.jpg);
   height: 30vh;
+  min-height: 200px;
   border-radius: 5px;
 }
 

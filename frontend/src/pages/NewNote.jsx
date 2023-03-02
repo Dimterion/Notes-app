@@ -51,7 +51,7 @@ function NewNote() {
             </select>
           </div>
           <div className="form-group">
-            <label htmlFor="description">Description of the note</label>
+            <label htmlFor="description">Description</label>
             <textarea
               name="description"
               id="description"
