@@ -59,6 +59,19 @@ export const completeNote = createAsyncThunk(
   }
 );
 
+// Mark note as in progress
+export const inProgressNote = createAsyncThunk(
+  "notes/in-progress",
+  async (noteId, thunkAPI) => {
+    try {
+      const token = thunkAPI.getState().auth.user.token;
+      return await noteService.inProgressNote(noteId, token);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(errorMessage(error));
+    }
+  }
+);
+
 export const noteSlice = createSlice({
   name: "note",
   initialState,
@@ -74,6 +87,12 @@ export const noteSlice = createSlice({
         state.note = action.payload;
       })
       .addCase(completeNote.fulfilled, (state, action) => {
+        state.note = action.payload;
+        state.notes = state.notes.map((note) =>
+          note._id === action.payload._id ? action.payload : note
+        );
+      })
+      .addCase(inProgressNote.fulfilled, (state, action) => {
         state.note = action.payload;
         state.notes = state.notes.map((note) =>
           note._id === action.payload._id ? action.payload : note

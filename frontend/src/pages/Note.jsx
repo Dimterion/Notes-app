@@ -3,7 +3,11 @@ import { toast } from "react-toastify";
 import Modal from "react-modal";
 import { FaPlus } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
-import { getNote, completeNote } from "../features/notes/noteSlice";
+import {
+  getNote,
+  completeNote,
+  inProgressNote,
+} from "../features/notes/noteSlice";
 import { getUpdates, createUpdate } from "../features/updates/updateSlice";
 import { useParams, useNavigate } from "react-router-dom";
 import BackButton from "../components/BackButton";
@@ -59,6 +63,17 @@ function Note() {
       .catch(toast.error);
   };
 
+  // In progress note
+  const onNoteInProgress = () => {
+    dispatch(inProgressNote(noteId))
+      .unwrap()
+      .then(() => {
+        toast.success("Note in progress");
+        navigate("/notes");
+      })
+      .catch(toast.error);
+  };
+
   // Create update submit
   const onUpdateSubmit = (e) => {
     e.preventDefault();
@@ -95,6 +110,11 @@ function Note() {
           <h3>Description</h3>
           <p>{note.description}</p>
         </div>
+        {note.status !== "complete" && (
+          <button onClick={onNoteInProgress} className="btn">
+            Mark as active
+          </button>
+        )}
         <h2>Updates</h2>
       </header>
       {note.status !== "complete" && (

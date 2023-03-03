@@ -58,11 +58,29 @@ const completeNote = async (noteId, token) => {
   return response.data;
 };
 
+// Mark note as in progress
+const inProgressNote = async (noteId, token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  const response = await axios.put(
+    API_URL + noteId,
+    { status: "in-progress" },
+    config
+  );
+
+  return response.data;
+};
+
 const noteService = {
   createNote,
   getNotes,
   getNote,
   completeNote,
+  inProgressNote,
 };
 
 export default noteService;
