@@ -65,13 +65,7 @@ function Note() {
 
   // In progress note
   const onNoteInProgress = () => {
-    dispatch(inProgressNote(noteId))
-      .unwrap()
-      .then(() => {
-        toast.success("Note in progress");
-        navigate("/notes");
-      })
-      .catch(toast.error);
+    dispatch(inProgressNote(noteId)).unwrap().catch(toast.error);
   };
 
   // Create update submit
@@ -110,9 +104,9 @@ function Note() {
           <h3>Description</h3>
           <p>{note.description}</p>
         </div>
-        {note.status !== "complete" && (
+        {note.status !== "complete" && note.status !== "in-progress" && (
           <button onClick={onNoteInProgress} className="btn">
-            Mark as active
+            Set as in-progress
           </button>
         )}
         <h2>Updates</h2>
@@ -156,8 +150,8 @@ function Note() {
         <Spinner />
       )}
       {note.status !== "complete" && (
-        <button onClick={onNoteComplete} className="btn btn-block btn-danger">
-          Mark as Complete
+        <button onClick={onNoteComplete} className="btn btn-danger">
+          Mark as complete
         </button>
       )}
     </div>

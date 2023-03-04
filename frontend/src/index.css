@@ -244,6 +244,12 @@ h3 {
   border-radius: 10px;
 }
 
+.status-in-progress {
+  background-color: var(--tertiaryColor);
+  color: var(--primaryColor);
+  border-radius: 10px;
+}
+
 .note-page {
   position: relative;
   text-align: left;
