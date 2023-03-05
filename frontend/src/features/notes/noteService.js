@@ -15,6 +15,19 @@ const createNote = async (noteData, token) => {
   return response.data;
 };
 
+// Delete note
+const deleteNote = async (noteId, token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  const response = await axios.delete(API_URL + noteId, config);
+
+  return response.data;
+};
+
 // Get user notes
 const getNotes = async (token) => {
   const config = {
@@ -77,6 +90,7 @@ const inProgressNote = async (noteId, token) => {
 
 const noteService = {
   createNote,
+  deleteNote,
   getNotes,
   getNote,
   completeNote,

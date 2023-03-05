@@ -20,6 +20,19 @@ export const createNote = createAsyncThunk(
   }
 );
 
+// Delete note
+export const deleteNote = createAsyncThunk(
+  "notes/delete",
+  async (noteData, thunkAPI) => {
+    try {
+      const token = thunkAPI.getState().auth.user.token;
+      return await noteService.deleteNote(noteData, token);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(errorMessage(error));
+    }
+  }
+);
+
 // Get user notes
 export const getNotes = createAsyncThunk(
   "notes/getAll",
@@ -93,6 +106,12 @@ export const noteSlice = createSlice({
         );
       })
       .addCase(inProgressNote.fulfilled, (state, action) => {
+        state.note = action.payload;
+        state.notes = state.notes.map((note) =>
+          note._id === action.payload._id ? action.payload : note
+        );
+      })
+      .addCase(deleteNote.fulfilled, (state, action) => {
         state.note = action.payload;
         state.notes = state.notes.map((note) =>
           note._id === action.payload._id ? action.payload : note

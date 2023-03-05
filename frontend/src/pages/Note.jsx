@@ -5,6 +5,7 @@ import { FaPlus } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import {
   getNote,
+  deleteNote,
   completeNote,
   inProgressNote,
 } from "../features/notes/noteSlice";
@@ -58,6 +59,17 @@ function Note() {
       .unwrap()
       .then(() => {
         toast.success("Note complete");
+        navigate("/notes");
+      })
+      .catch(toast.error);
+  };
+
+  // Delete note
+  const onNoteDelete = () => {
+    dispatch(deleteNote(noteId))
+      .unwrap()
+      .then(() => {
+        toast.success("Note deleted");
         navigate("/notes");
       })
       .catch(toast.error);
@@ -154,6 +166,9 @@ function Note() {
           Mark as complete
         </button>
       )}
+      <button onClick={onNoteDelete} className="btn btn-danger">
+        Delete note
+      </button>
     </div>
   );
 }
