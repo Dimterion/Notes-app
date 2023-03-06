@@ -55,29 +55,32 @@ function Note() {
 
   // Complete note
   const onNoteComplete = () => {
-    dispatch(completeNote(noteId))
-      .unwrap()
-      .then(() => {
-        toast.success("Note complete");
-        navigate("/notes");
-      })
-      .catch(toast.error);
+    window.confirm("Mark this note as complete?") &&
+      dispatch(completeNote(noteId))
+        .unwrap()
+        .then(() => {
+          toast.success("Note complete");
+          navigate("/notes");
+        })
+        .catch(toast.error);
   };
 
   // Delete note
   const onNoteDelete = () => {
-    dispatch(deleteNote(noteId))
-      .unwrap()
-      .then(() => {
-        toast.success("Note deleted");
-        navigate("/notes");
-      })
-      .catch(toast.error);
+    window.confirm("Delete this note?") &&
+      dispatch(deleteNote(noteId))
+        .unwrap()
+        .then(() => {
+          toast.success("Note deleted");
+          navigate("/notes");
+        })
+        .catch(toast.error);
   };
 
   // In progress note
   const onNoteInProgress = () => {
-    dispatch(inProgressNote(noteId)).unwrap().catch(toast.error);
+    window.confirm("Set this note status - in-progress?") &&
+      dispatch(inProgressNote(noteId)).unwrap().catch(toast.error);
   };
 
   // Create update submit
