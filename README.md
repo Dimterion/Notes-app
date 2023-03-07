@@ -10,7 +10,7 @@ This application is built using MERN-stack and deployed on [Render](https://note
 
 Both back and front-end have been built for this app and are stored in this repo.
 
-The app may change in the future as it's currently in Work In Progress state.
+The app may change in the future as it's currently in Work In Progress state (that also means any saved data may be deleted from it).
 
 ## Built with
 
