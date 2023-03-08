@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { MdNoteAdd } from "react-icons/md";
 import { getNotes } from "../features/notes/noteSlice";
 import Spinner from "../components/Spinner";
 import BackButton from "../components/BackButton";
@@ -29,9 +31,14 @@ function Notes() {
           <div>Type</div>
           <div>Status</div>
         </div>
-        {notes.map((note) => (
-          <NoteItem key={note._id} note={note} />
-        ))}
+        {notes.length > 0 ? (
+          notes.map((note) => <NoteItem key={note._id} note={note} />)
+        ) : (
+          <p>No notes so far</p>
+        )}
+        <Link to="/new-note" className="btn">
+          <MdNoteAdd /> New Note
+        </Link>
       </div>
     </>
   );

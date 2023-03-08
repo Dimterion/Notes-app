@@ -165,7 +165,7 @@ function Note() {
         <Spinner />
       )}
       {note.status !== "complete" && (
-        <button onClick={onNoteComplete} className="btn btn-danger">
+        <button onClick={onNoteComplete} className="btn">
           Mark as complete
         </button>
       )}
