@@ -59,7 +59,7 @@ function Note() {
       dispatch(completeNote(noteId))
         .unwrap()
         .then(() => {
-          toast.success("Note complete");
+          toast.success("Note has been complete");
           navigate("/notes");
         })
         .catch(toast.error);
@@ -71,7 +71,7 @@ function Note() {
       dispatch(deleteNote(noteId))
         .unwrap()
         .then(() => {
-          toast.success("Note deleted");
+          toast.success("Note has been deleted");
           navigate("/notes");
         })
         .catch(toast.error);
@@ -79,7 +79,7 @@ function Note() {
 
   // In progress note
   const onNoteInProgress = () => {
-    window.confirm("Set this note status - in-progress?") &&
+    window.confirm("Set note status as in-progress?") &&
       dispatch(inProgressNote(noteId)).unwrap().catch(toast.error);
   };
 

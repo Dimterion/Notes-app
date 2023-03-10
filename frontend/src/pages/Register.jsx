@@ -43,7 +43,7 @@ function Register() {
       dispatch(register(userData))
         .unwrap()
         .then((user) => {
-          toast.success(`New user is registered - ${user.name}`);
+          toast.success(`New user has been registered - ${user.name}`);
           navigate("/");
         })
         .catch(toast.error);
