@@ -50,7 +50,7 @@ h3 {
   width: 100%;
   max-width: 950px;
   margin: 0 auto;
-  padding: 5px 20px;
+  padding: 5px 15px;
   text-align: center;
 }
 
@@ -58,7 +58,7 @@ h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
+  padding: 10px 0;
   border-bottom: 1px solid var(--primaryColor);
   margin-bottom: 50px;
 }
@@ -315,12 +315,6 @@ h3 {
 .btn-complete:hover {
   color: var(--tertiaryBackground);
   transform: scale(0.95);
-}
-
-footer {
-  position: sticky;
-  top: 95vh;
-  text-align: center;
 }
 
 .loadingSpinnerContainer {
