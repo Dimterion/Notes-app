@@ -15,8 +15,10 @@ function Header() {
 
   return (
     <header className="header">
-      <div className="logo">
-        <Link to="/">Notes App</Link>
+      <div>
+        <Link className="logo" to="/">
+          Notes App
+        </Link>
       </div>
       <ul>
         {user ? (
