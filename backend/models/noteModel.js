@@ -14,7 +14,7 @@ const noteSchema = mongoose.Schema(
     },
     description: {
       type: String,
-      required: [true, "Please enter a description of the note"],
+      required: [true, "Please enter note description"],
     },
     status: {
       type: String,

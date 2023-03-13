@@ -150,11 +150,12 @@ function Note() {
               placeholder="Update text"
               value={updateText}
               onChange={(e) => setUpdateText(e.target.value)}
+              required
             ></textarea>
           </div>
           <div className="form-group">
             <button className="btn" type="submit">
-              Submit
+              Post
             </button>
           </div>
         </form>

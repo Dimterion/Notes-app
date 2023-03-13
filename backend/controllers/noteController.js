@@ -38,7 +38,7 @@ const createNote = asyncHandler(async (req, res) => {
 
   if (!type || !description) {
     res.status(400);
-    throw new Error("Please add a type and description");
+    throw new Error("Please add type and description");
   }
 
   const note = await Note.create({

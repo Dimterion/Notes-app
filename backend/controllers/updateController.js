@@ -11,7 +11,7 @@ const getUpdates = asyncHandler(async (req, res) => {
 
   if (note.user.toString() !== req.user.id) {
     res.status(401);
-    throw new Error("User not authorized");
+    throw new Error("Not authorized");
   }
 
   const updates = await Update.find({ note: req.params.noteId });
@@ -27,7 +27,7 @@ const addUpdate = asyncHandler(async (req, res) => {
 
   if (note.user.toString() !== req.user.id) {
     res.status(401);
-    throw new Error("User not authorized");
+    throw new Error("Not authorized");
   }
 
   const update = await Update.create({
