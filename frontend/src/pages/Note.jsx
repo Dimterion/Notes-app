@@ -79,7 +79,7 @@ function Note() {
 
   // In progress note
   const onNoteInProgress = () => {
-    window.confirm("Set note status as in-progress?") &&
+    window.confirm("Set this note status as in-progress?") &&
       dispatch(inProgressNote(noteId)).unwrap().catch(toast.error);
   };
 
@@ -127,7 +127,7 @@ function Note() {
         <h2>Updates</h2>
       </header>
       {note.status !== "complete" && (
-        <button onClick={openModal} className="btn">
+        <button onClick={openModal} className="btn btn-reverse">
           <FaPlus /> Post an update
         </button>
       )}
@@ -146,7 +146,7 @@ function Note() {
             <textarea
               name="updateText"
               id="updateText"
-              className="form-control"
+              className="form-control update-text"
               placeholder="Update text"
               value={updateText}
               onChange={(e) => setUpdateText(e.target.value)}
@@ -171,7 +171,7 @@ function Note() {
         </button>
       )}
       <button onClick={onNoteDelete} className="btn btn-danger">
-        Delete note
+        X Delete this note
       </button>
     </div>
   );

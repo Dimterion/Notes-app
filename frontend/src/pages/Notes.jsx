@@ -36,7 +36,7 @@ function Notes() {
         ) : (
           <p>No notes so far</p>
         )}
-        <Link to="/new-note" className="btn">
+        <Link to="/new-note" className="btn btn-reverse">
           <MdNoteAdd /> New Note
         </Link>
       </div>

@@ -147,6 +147,10 @@ h3 {
   margin: 5px;
 }
 
+.update-text {
+  height: 100px;
+}
+
 .btn-block {
   display: flex;
   flex-flow: row wrap;
