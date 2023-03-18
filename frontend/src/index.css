@@ -119,6 +119,13 @@ h3 {
   text-shadow: 1px 1px 1px var(--primaryColor);
 }
 
+.homePage-text {
+  border: 1px solid var(--primaryColor);
+  border-radius: 5px;
+  padding: 15px;
+  margin-top: 5vh;
+}
+
 .form {
   width: 50%;
   margin: 0 auto;

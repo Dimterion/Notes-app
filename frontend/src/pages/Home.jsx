@@ -15,11 +15,11 @@ function Home() {
         <Link to="/notes" className="btn btn-block">
           <MdNotes /> My Notes
         </Link>
-        <p>
-          Please note that the app is in Work In Progress state which means that
-          it may change in the future and any saved data may be deleted from it.
-        </p>
       </div>
+      <p className="homePage-text">
+        Please note that the app is in Work In Progress state which means that
+        it may change in the future and any saved data may be deleted from it.
+      </p>
     </>
   );
 }
