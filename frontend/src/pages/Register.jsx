@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import { FaUser } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { register } from "../features/auth/authSlice";
+import BackButton from "../components/BackButton";
 import Spinner from "../components/Spinner";
 
 function Register() {
@@ -56,6 +57,7 @@ function Register() {
 
   return (
     <>
+      <BackButton />
       <section className="heading">
         <h1>
           <FaUser /> Register

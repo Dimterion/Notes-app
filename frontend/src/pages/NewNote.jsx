@@ -28,7 +28,7 @@ function NewNote() {
 
   return (
     <>
-      <BackButton url="/" />
+      <BackButton />
       <section className="heading">
         <h1>Create New Note</h1>
         <p>Fill out the form below</p>
@@ -62,7 +62,7 @@ function NewNote() {
             ></textarea>
           </div>
           <div className="form-group">
-            <button className="btn btn-block">Create</button>
+            <button className="btn btn-block">Create Note</button>
           </div>
         </form>
       </section>

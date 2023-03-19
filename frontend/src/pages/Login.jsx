@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import { FaSignInAlt } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { login } from "../features/auth/authSlice";
+import BackButton from "../components/BackButton";
 import Spinner from "../components/Spinner";
 
 function Login() {
@@ -49,6 +50,7 @@ function Login() {
 
   return (
     <>
+      <BackButton />
       <section className="heading">
         <h1>
           <FaSignInAlt /> Login

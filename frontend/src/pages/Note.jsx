@@ -59,7 +59,7 @@ function Note() {
       dispatch(completeNote(noteId))
         .unwrap()
         .then(() => {
-          toast.success("Note has been complete");
+          toast.success("Note has been completed");
           navigate("/notes");
         })
         .catch(toast.error);
@@ -106,14 +106,12 @@ function Note() {
   return (
     <div className="note-page">
       <header className="note-header">
-        <BackButton url="/notes" />
+        <BackButton />
         <h2>
           Note ID: {note._id}
           <span className={`status status-${note.status}`}>{note.status}</span>
         </h2>
-        <h3>
-          Date created: {new Date(note.createdAt).toLocaleString("en-GB")}
-        </h3>
+        <h3>Created at: {new Date(note.createdAt).toLocaleString("en-GB")}</h3>
         <h3>Type: {note.type}</h3>
         <div className="note-desc">
           <h3>Description</h3>
@@ -137,7 +135,7 @@ function Note() {
         style={customStyles}
         contentLabel="Post an update"
       >
-        <h2>Post an update</h2>
+        <h2>Note update</h2>
         <button className="btn-complete" onClick={closeModal}>
           X
         </button>
@@ -155,7 +153,7 @@ function Note() {
           </div>
           <div className="form-group">
             <button className="btn" type="submit">
-              Post
+              Post update
             </button>
           </div>
         </form>

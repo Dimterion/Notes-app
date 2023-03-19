@@ -23,7 +23,7 @@ function Notes() {
 
   return (
     <>
-      <BackButton url="/" />
+      <BackButton />
       <h1>{user.name}'s Notes</h1>
       <div className="notes">
         <div className="note-headings">
