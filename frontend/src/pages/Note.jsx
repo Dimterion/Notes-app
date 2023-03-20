@@ -163,6 +163,7 @@ function Note() {
       ) : (
         <Spinner />
       )}
+      <hr></hr>
       {note.status !== "complete" && (
         <button onClick={onNoteComplete} className="btn">
           Mark as complete
