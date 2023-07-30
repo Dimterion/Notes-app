@@ -6,7 +6,7 @@ An application to create notes of various types and store them under the users a
 
 The app allows users to create accounts, write notes, view their notes details, set their statuses, post updates and mark them as complete.
 
-This application is built using MERN-stack and deployed on [Railway](https://notes-app-production-3eb2.up.railway.app/). There is also an alternative link for [Render](https://notes-app-mbwb.onrender.com/) which can take some time to load.
+This application is built using MERN-stack and deployed on [Render](https://notes-app-mbwb.onrender.com/).
 
 Both back and front-end have been written for this app, and all its code is stored in this repo.
 
