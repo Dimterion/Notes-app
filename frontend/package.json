@@ -20,6 +20,11 @@
     "react-toastify": "^9.1.1",
     "web-vitals": "^2.1.4"
   },
+  "overrides": {
+    "@svgr/webpack": "^6.2.1",
+    "svgo": "^3.3.5",
+    "nth-check": "^2.1.1"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
