@@ -31,7 +31,6 @@
     "dotenv": "^16.0.3",
     "express": "^4.22.2",
     "express-async-handler": "^1.2.0",
-    "ip": "^2.0.1",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^8.24.1"
   },

@@ -29,7 +29,8 @@
     "resolve-url-loader": "^5.0.0",
     "css-what": "^6.1.0",
     "css-select": "^5.1.0",
-    "semver": "^7.5.4"
+    "semver": "^7.5.4",
+    "underscore": "^1.13.8"
   },
   "scripts": {
     "start": "react-scripts start",
